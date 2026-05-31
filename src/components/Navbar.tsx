@@ -97,7 +97,7 @@ const handleLogout = () =>{
             <button className="relative p-2 rounded-xl" onClick={() => {}}>
               <ShoppingCartIcon className=" size-6 text-zinc-900" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 size-4 bg-orange-500 text-white text-[15px] rounded-full flex items-center">
+                <span className="absolute -top-1 -right-2 size-5 bg-orange-500 text-white text-[15px] rounded-full flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
