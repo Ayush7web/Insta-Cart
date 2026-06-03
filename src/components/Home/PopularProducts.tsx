@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import type { Product } from "../../types";
 import { categoriesData } from "../../data/categoriesData";
@@ -6,9 +5,6 @@ import { ArrowBigRightIcon } from "lucide-react";
 import ProductCard from "../ProductCard";
 
 const PopularProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-
-
   interface Product {
     _id: string;
     name: string;
@@ -21,20 +17,16 @@ const PopularProducts = () => {
     reviewCount: number;
   }
 
-  useEffect(() => {
-    setProducts(
-      categoriesData.slice(0, 10).map((product) => {
-        const { id, price, originalPrice, ...rest } = product;
+  const products: Product[] = categoriesData.slice(0, 10).map((product) => {
+    const { id, price, originalPrice, ...rest } = product;
 
-        return {
-          ...rest,
-          _id: String(id),
-          price: Number(price),
-          originalPrice: Number(originalPrice),
-        };
-      })
-    );
-  }, []);
+    return {
+      ...rest,
+      _id: String(id),
+      price: Number(price),
+      originalPrice: Number(originalPrice),
+    };
+  });
 
   return (
     <section className="pb-16">

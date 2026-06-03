@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Plus, Star } from "lucide-react";
+import { UseCart } from "../context/CartContext";
 
 interface Product {
   _id: string;
@@ -18,6 +19,7 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
+  const {addToCart} = UseCart();
   const navigate = useNavigate();
   // currency symbol (define here to avoid "Cannot find name 'currency'" error)
   const currency = "₹";
@@ -25,7 +27,7 @@ const ProductCard = ({ product }: Props) => {
 
   return (
     <div
-      className="bg-white rounded-2xl overflow-hidden shadow hover:shadow-md transition-all duration-300 group  cursor-pointer{"
+      className="bg-white rounded-2xl overflow-hidden shadow hover:shadow-md transition-all duration-300 group cursor-pointer"
       onClick={() => navigate(`/products/${product._id}`)}
     >
       {/* image */}
@@ -80,7 +82,9 @@ const ProductCard = ({ product }: Props) => {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              // addToCart(product);
+              // the cart expects an `id` field (not `_id`), map it here
+              const cartProduct: Product & { id: string } = { ...product, id: product._id };
+              addToCart(cartProduct);
             }}
             className="size-7 rounded-full bg-orange-600 text-white flex items-center justify-center  shrink-0 hover:bg-orange-900 transition-colors active:scale-95 "
           >
