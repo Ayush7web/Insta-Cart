@@ -31,8 +31,7 @@ const Navbar = () => {
   };
 
   // const [cartCount] = useState<number>(5);
-
-  const { cartCount } = UseCart()
+const { cartCount, setIsCartOpen } = UseCart();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -97,7 +96,7 @@ const handleLogout = () =>{
           <div className="flex items-center gap-3">
             {/* cart  */}
 
-            <button className="relative p-2 rounded-xl" onClick={() => {}}>
+            <button className="relative p-2 rounded-xl" onClick={() => setIsCartOpen(true)}>
               <ShoppingCartIcon className=" size-6 text-zinc-900" />
               {cartCount > 0 && (
                 <span className="absolute -top-1 -right-2 size-5 bg-orange-500 text-white text-[15px] rounded-full flex items-center justify-center">

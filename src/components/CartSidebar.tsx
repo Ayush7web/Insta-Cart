@@ -12,9 +12,9 @@ import {
 type Product = {
   id: string | number;
   name: string;
-  // image: string;
+  image?: string;
   price: number;
-  imageUrl?: string;
+  // imageUrl?: string;
 };
 
 type CartItem = {
@@ -48,9 +48,12 @@ const CartSidebar = () => {
       onClick={() => setIsCartOpen(false)}
       className="fixed inset-0 bg-black/40 z-50 transition-opacity"
     >
-      {/* Sidebar  */}
+      {/* Sidebar  codeeeee */}
 
-      <div className="fixed right-0 top-0 h-full w-80 max-w-md bg-white z-50 shadow-2xl flex flex-col animate-slide-in-right">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="fixed right-0 top-0 h-full w-80 max-w-md bg-white z-50 shadow-2xl flex flex-col animate-slide-in-right"
+      >
         {/* Header  */}
         <div className="flex items-center justify-between p-5 border-b">
           <div className="flex items-center gap-2">
@@ -100,7 +103,10 @@ const CartSidebar = () => {
                     <div className="flex items-center gap-1.5">
                       <button
                         onClick={() =>
-                          updateQuantity(String(item.product.id), item.quantity - 1)
+                          updateQuantity(
+                            String(item.product.id),
+                            item.quantity - 1,
+                          )
                         }
                         className="size-7 rounded-lg bg-white border flex items-center justify-center"
                       >
@@ -113,7 +119,10 @@ const CartSidebar = () => {
 
                       <button
                         onClick={() =>
-                          updateQuantity(String(item.product.id), item.quantity + 1)
+                          updateQuantity(
+                            String(item.product.id),
+                            item.quantity + 1,
+                          )
                         }
                         className="size-7 rounded-lg bg-white border flex items-center justify-center"
                       >
@@ -136,7 +145,7 @@ const CartSidebar = () => {
                       </button>
                     </div>
                   </div>
-                  {/* <div></div> */}
+                  {/* =========================== */}
                 </div>
               </div>
             ))

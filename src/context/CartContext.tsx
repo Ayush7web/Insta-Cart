@@ -66,6 +66,7 @@ setIsCartOpen(true)
     const clearCart = () =>{
       setItems([])
       setIsCartOpen(false)
+      
     }
 
 const cartCount = items.reduce((sum ,item ) => sum + item.quantity, 0)
