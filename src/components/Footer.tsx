@@ -38,7 +38,7 @@ const footerData = {
     { icon: MapPin, text: "123 Market St, San Francisco, CA" },
   ],
   bottom: {
-    copyright: "© 2024 InstaCart. All rights reserved.",
+    copyright: "© 2026 InstaCart. All rights reserved.",
     links: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Service", href: "#" },
