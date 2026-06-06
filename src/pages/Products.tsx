@@ -31,7 +31,7 @@ const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
 const [totalPages] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [ setMobileFiltersOpen] = useState(false);
 
   const category = searchParams.get("category") || "";
   const organic = searchParams.get("organic") || "";
