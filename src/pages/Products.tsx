@@ -8,6 +8,7 @@ import ProductCard from "../components/ProductCard";
 // import prod from "../data/categoriesData";
 
 type Product = {
+  _id: string
   id: string;
   name: string;
   image: string;
@@ -23,12 +24,12 @@ type Product = {
   organic?: boolean;
 };
 
-const dummproductSeparateDatayProducts: Product[] = [];
+// const dummproductSeparateDatayProducts: Product[] = [];
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
-  const [totalPages, setTotalPages] = useState(1);
+const [totalPages] = useState(1);
   const [loading, setLoading] = useState(true);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
@@ -67,7 +68,7 @@ const Products = () => {
 
   // if any of these true ye filters" niche wala "aaply ho jayega
 
-  const hasFilters = category || organic || minPrice || maxPrice;
+  // const hasFilters = category || organic || minPrice || maxPrice;
 
   // ===================
 
