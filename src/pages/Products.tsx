@@ -19,7 +19,7 @@ type Product = {
   reviewCount: number;
   stock: number;
   category: string;
-  rating: number | undefined;
+  rating: number;
   description?: string;
   organic?: boolean;
 };
@@ -43,9 +43,12 @@ const [totalPages] = useState(1);
   const fetchProducts = async () => {
     setLoading(true);
     setProducts(
-      productSeparateData.filter(
-        (p) => p.category === category || category === "",
-      ),
+      productSeparateData
+        .filter((p) => p.category === category || category === "")
+        .map((p) => ({
+          ...p,
+          rating: p.rating ?? 0,
+        })),
     );
     setLoading(false);
   };
