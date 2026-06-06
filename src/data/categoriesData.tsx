@@ -146,22 +146,6 @@ export const categoriesData = [
   },
 
   {
-    id: 10,
-    name: "Bags",
-    slug: "bags",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-
-    originalPrice: "220",
-    price: "110",
-    discount: 50,
-
-    rating: 4.5,
-    reviewCount: 8420,
-
-    unit: "1 Piece",
-  },
-
-  {
     id: 11,
     name: "Gaming",
     slug: "gaming",
@@ -176,6 +160,8 @@ export const categoriesData = [
 
     unit: "1 Set",
   },
+
+
 
   {
     id: 12,

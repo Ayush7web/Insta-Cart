@@ -1,15 +1,29 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { categoriesData } from "../data/categoriesData";
+import { productSeparateData } from "../data/productSeparateData";
 import { Link } from "react-router-dom";
 import { ChevronDown, Home, SlidersHorizontal } from "lucide-react";
+import ProductCard from "../components/ProductCard";
 // import prod from "../data/categoriesData";
 
 type Product = {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+  originalPrice: number;
+  unit: string;
+  discount: number;
+  reviewCount: number;
+  stock: number;
   category: string;
+  rating: number | undefined;
+  description?: string;
+  organic?: boolean;
 };
 
-const dummyProducts: Product[] = [];
+const dummproductSeparateDatayProducts: Product[] = [];
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,7 +42,9 @@ const Products = () => {
   const fetchProducts = async () => {
     setLoading(true);
     setProducts(
-      dummyProducts.filter((p) => p.category === category || category === ""),
+      productSeparateData.filter(
+        (p) => p.category === category || category === "",
+      ),
     );
     setLoading(false);
   };
@@ -78,6 +94,7 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
             {activeCategory ? activeCategory.name : "All products"}
           </span>
         </nav>
+        
 
         {/* ===================== */}
         <div className="flex gap-8 xl:gap-10">
@@ -125,10 +142,57 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
                     <option value="rating">Top Rated</option>
                     <option value="name">A to Z</option>
                   </select>
-                  <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-shadow-indigo-400 pointer-events-none"/>
+                  <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-shadow-indigo-400 pointer-events-none" />
                 </div>
               </div>
             </div>
+
+            {/* product grid  */}
+            {loading ? (
+              <p>Loading...</p>
+            ) : products.length === 0 ? (
+              <div className="text-center py-16">
+                <p className="text-lg font-semibold text-green-600 mb-2">
+                  No products found
+                </p>
+                <p className="text-sm text-amber-600 mb-4">
+                  Try adjusting your filters or search terms
+                </p>
+                <button
+                  onClick={clearFilter}
+                  className="px-5 py-2 text-sm font-medium bg-green-600 text-white rounded-xl hover:bg-green-900 transition-colors"
+                >
+                  clear Filters
+                </button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:gap-8">
+                {products.map(
+                  (product) =>
+                    product.stock > 0 && (
+                      <ProductCard key={product.id} product={product} />
+                    ),
+                )}
+              </div>
+            )}
+
+            {/* pagination  */}
+            {totalPages > 1 && (
+              <div className="flex-center gap-2 mt-16">
+                {Array.from({ length: totalPages }).map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      updateFilters("page", String(i + 1));
+                      scrollTo(0, 0);
+                    }}
+                    className={`size-9 rounded-lg text-sm font-medium transition-colors ${page === i + 1 ? " bg-green-300 text-white" : "bg-white hover:bg-conic-270"}`}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>
+            )}
           </main>
         </div>
       </div>
