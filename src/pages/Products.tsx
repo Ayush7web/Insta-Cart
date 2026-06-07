@@ -5,6 +5,8 @@ import { productSeparateData } from "../data/productSeparateData";
 import { Link } from "react-router-dom";
 import { ChevronDown, Home, SlidersHorizontal } from "lucide-react";
 import ProductCard from "../components/ProductCard";
+import Loading from "../components/Loading";
+import FilterPanel from "../components/FilterPanel";
 // import prod from "../data/categoriesData";
 
 type Product = {
@@ -68,6 +70,7 @@ const [totalPages] = useState(1);
 
   const clearFilter = () => setSearchParams({});
   const activeCategory = categoriesData.find((c) => c.slug === category);
+  const hasFilters = Boolean(category || organic || minPrice || maxPrice);
 
   // if any of these true ye filters" niche wala "aaply ho jayega
 
@@ -104,7 +107,16 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
           {/* side bar - Desktop */}
           <aside className="hidden lg:block w-65 shrink-0">
             <div className="bg-white rounded-2xl p-4 sticky top-24">
-              <p>Filter</p>
+              <FilterPanel
+                categories={categoriesData}
+                category={category}
+                organic={organic}
+                minPrice={minPrice}
+                maxPrice={maxPrice}
+                updateFilters={updateFilters}
+                clearFilter={clearFilter}
+                hasFilters={hasFilters}
+              />
             </div>
           </aside>
 
@@ -152,7 +164,7 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
 
             {/* product grid  */}
             {loading ? (
-              <p>Loading...</p>
+              <Loading />
             ) : products.length === 0 ? (
               <div className="text-center py-16">
                 <p className="text-lg font-semibold text-green-600 mb-2">
