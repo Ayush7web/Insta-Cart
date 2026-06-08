@@ -42,7 +42,7 @@ const Products = () => {
   const page = Number(searchParams.get("page")) || "";
   const minPrice = searchParams.get("minPrice") || "";
   const maxPrice = searchParams.get("maxPrice") || "";
-  // const hasFilters = searchParams.get("hasFilters") === "true";
+  const hasFilters = searchParams.get("hasFilters") === "true";
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -105,11 +105,11 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
               <FilterPanel
                 categories={categoriesData}
                 category={category}
-                // organic={organic}
+                organic={organic}
                 minPrice={minPrice}
                 maxPrice={maxPrice}
                 updateFilters={updateFilters}
-                // hasFilters={hasFilters}
+                hasFilters={hasFilters}
                 clearFilter={clearFilter}
               />
             </div>
@@ -133,7 +133,7 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
               <div className="flex flex-col lg:items-center gap-3">
                 {/* mobile filters toggle */}
                 <button
-                  onClick={() => setMobileFiltersOpen(mobileFiltersOpen)}
+                  onClick={() => setMobileFiltersOpen(true)}
                   className="lg:hidden flex items-center gap-2 px-3 py-2 text-sm bg-white rounded-xl border border-amber-100 hover:bg-amber-200 transition-colors"
                 >
                   <SlidersHorizontal className="size-4" /> Filters
@@ -234,11 +234,11 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
                 <FilterPanel
                   categories={categoriesData}
                   category={category}
-                  // organic={organic}
+                  organic={organic}
                   minPrice={minPrice}
                   maxPrice={maxPrice}
                   updateFilters={updateFilters}
-                  // hasFilters={hasFilters}
+                  hasFilters={hasFilters}
                   clearFilter={clearFilter}
                 />
               </div>
