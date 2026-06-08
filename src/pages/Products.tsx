@@ -133,7 +133,7 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
               <div className="flex flex-col lg:items-center gap-3">
                 {/* mobile filters toggle */}
                 <button
-                  onClick={() => setMobileFiltersOpen(true)}
+                  onClick={() => setMobileFiltersOpen(prev => !prev)}
                   className="lg:hidden flex items-center gap-2 px-3 py-2 text-sm bg-white rounded-xl border border-amber-100 hover:bg-amber-200 transition-colors"
                 >
                   <SlidersHorizontal className="size-4" /> Filters
