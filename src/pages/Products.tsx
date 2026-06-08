@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { categoriesData } from "../data/categoriesData";
 import { productSeparateData } from "../data/productSeparateData";
 import { Link } from "react-router-dom";
-import { ChevronDown, Home, SlidersHorizontal } from "lucide-react";
+import { ChevronDown, Home, SlidersHorizontal, XIcon } from "lucide-react";
 import ProductCard from "../components/ProductCard";
 import Loading from "../components/Loading";
 import FilterPanel from "../components/FilterPanel";
@@ -206,6 +206,46 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
           </main>
         </div>
       </div>
+
+      {/* Mobile filters Modals */}
+      {mobileFiltersOpen && (
+        <>
+          <div
+            className="fixed inset-0 bg-black/40 z-50"
+            onClick={() => setMobileFiltersOpen(false)}
+          >
+            <div
+              className="absolute bottom-0 left-0 right-0 bg-white z-50 rounded-t-2xl max-h-[80vh] overflow-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between p-4 border-b border-amber-600">
+                <h3 className="text-lg font-semibold text-green-950">
+                  Filters
+                </h3>
+                <button
+                  onClick={() => setMobileFiltersOpen(false)}
+                  className="p-2 hover:bg-conic-180 rounded-lg"
+                >
+                  <XIcon className="size-5" />
+                </button>
+              </div>
+
+              <div className="p-4">
+                <FilterPanel
+                  categories={categoriesData}
+                  category={category}
+                  // organic={organic}
+                  minPrice={minPrice}
+                  maxPrice={maxPrice}
+                  updateFilters={updateFilters}
+                  // hasFilters={hasFilters}
+                  clearFilter={clearFilter}
+                />
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
