@@ -10,7 +10,7 @@ type FilterPanelProps = {
   category: string;
   updateFilters: (filterName: string, value: string) => void;
   clearFilter: () => void;
-  hasFilters?: () => boolean;
+  // hasFilters?: () => boolean;
   organic? : string; 
 };
 
@@ -21,7 +21,7 @@ const FilterPanel = ({
   category,
   updateFilters,
   clearFilter,
-  hasFilters,
+  // hasFilters,
 }: FilterPanelProps) => {
   const categoriesWithAll: Category[] = [
     { slug: "", name: "All categories" },

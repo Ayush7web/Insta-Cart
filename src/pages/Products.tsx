@@ -42,7 +42,7 @@ const Products = () => {
   const page = Number(searchParams.get("page")) || "";
   const minPrice = searchParams.get("minPrice") || "";
   const maxPrice = searchParams.get("maxPrice") || "";
-  const hasFilters = searchParams.get("hasFilters") === "true";
+  // const hasFilters = searchParams.get("hasFilters") === "true";
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -109,7 +109,7 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
                 minPrice={minPrice}
                 maxPrice={maxPrice}
                 updateFilters={updateFilters}
-                hasFilters={hasFilters}
+                // hasFilters={hasFilters}
                 clearFilter={clearFilter}
               />
             </div>
@@ -238,7 +238,7 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
                   minPrice={minPrice}
                   maxPrice={maxPrice}
                   updateFilters={updateFilters}
-                  hasFilters={hasFilters}
+                  // hasFilters={hasFilters}
                   clearFilter={clearFilter}
                 />
               </div>
