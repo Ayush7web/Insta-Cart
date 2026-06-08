@@ -10,7 +10,7 @@ import FilterPanel from "../components/FilterPanel";
 // import prod from "../data/categoriesData";
 
 type Product = {
-  _id: string
+  _id: string;
   id: string;
   name: string;
   image: string;
@@ -24,6 +24,7 @@ type Product = {
   rating: number;
   description?: string;
   organic?: boolean;
+  hasFilters?: boolean;
 };
 
 // const dummproductSeparateDatayProducts: Product[] = [];
@@ -31,7 +32,7 @@ type Product = {
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
-const [totalPages] = useState(1);
+  const [totalPages] = useState(1);
   const [loading, setLoading] = useState(true);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
@@ -41,6 +42,7 @@ const [totalPages] = useState(1);
   const page = Number(searchParams.get("page")) || "";
   const minPrice = searchParams.get("minPrice") || "";
   const maxPrice = searchParams.get("maxPrice") || "";
+  // const hasFilters = searchParams.get("hasFilters") === "true";
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -70,13 +72,6 @@ const [totalPages] = useState(1);
 
   const clearFilter = () => setSearchParams({});
   const activeCategory = categoriesData.find((c) => c.slug === category);
-  const hasFilters = Boolean(category || organic || minPrice || maxPrice);
-
-  // if any of these true ye filters" niche wala "aaply ho jayega
-
-  // const hasFilters = category || organic || minPrice || maxPrice;
-
-  // ===================
 
   useEffect(() => {
     fetchProducts();
@@ -110,12 +105,12 @@ Home > Electronics > Mobile Phones > iPhone 16 */}
               <FilterPanel
                 categories={categoriesData}
                 category={category}
-                organic={organic}
+                // organic={organic}
                 minPrice={minPrice}
                 maxPrice={maxPrice}
                 updateFilters={updateFilters}
+                // hasFilters={hasFilters}
                 clearFilter={clearFilter}
-                hasFilters={hasFilters}
               />
             </div>
           </aside>
