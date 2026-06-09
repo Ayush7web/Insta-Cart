@@ -18,3 +18,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
  }
+
+ .star-fill-orange {
+  fill:#FFA500 ;
+}

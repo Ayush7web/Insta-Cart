@@ -29,7 +29,12 @@ const FlashDeals = () => {
   useEffect(() => {
     setProducts(productSeparateData.filter((p: any) => p.stock > 0));
     setTimeout(() => setLoading(false), 2000);
-  });
+  }, []);
+
+
+
+  
+
   return (
     <div className="min-h-screen bg-blend-hue">
       {/* Banner  */}
@@ -56,16 +61,21 @@ const FlashDeals = () => {
         ) : products.length === 0 ? (
           <div className="text-center py-16">
             <Zap className="size-16 text-shadow-amber-300 mx-auto mb-4" />
-            <h2 className="text-lg font-semibold text-green-950 mb-2 ">No deals right now</h2>
-            <p className="text-sm text-lime-950">Check back soon for amazing offers</p>
+            <h2 className="text-lg font-semibold text-green-950 mb-2 ">
+              No deals right now
+            </h2>
+            <p className="text-sm text-lime-950">
+              Check back soon for amazing offers
+            </p>
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4">
-{
-  products.map((product) => product.stock > 0 && (
-    <ProductCard key={product._id} product={product}/>
-  ))
-}
+            {products.map(
+              (product) =>
+                product.stock > 0 && (
+                  <ProductCard key={product._id} product={product} />
+                ),
+            )}
           </div>
         )}
       </div>

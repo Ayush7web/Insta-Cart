@@ -13,6 +13,8 @@ export const productSeparateData = [
     stock: 20,
     category: "mobiles",
     rating: 4.9,
+    description:
+      "Premium smartphone with powerful performance, advanced cameras, and all-day battery life.",
   },
   {
     id: "m2",
@@ -27,6 +29,8 @@ export const productSeparateData = [
     stock: 15,
     category: "mobiles",
     rating: 4.8,
+    description:
+      "Premium smartphone with powerful performance, advanced cameras, and all-day battery life.",
   },
   {
     id: "m3",
@@ -41,6 +45,8 @@ export const productSeparateData = [
     stock: 25,
     category: "mobiles",
     rating: 4.7,
+    description:
+      "Premium smartphone with powerful performance, advanced cameras, and all-day battery life.",
   },
 
   // LAPTOPS
@@ -57,6 +63,8 @@ export const productSeparateData = [
     stock: 10,
     category: "laptops",
     rating: 4.9,
+    description:
+      "High-performance laptop designed for productivity, entertainment, and everyday use.",
   },
   {
     id: "l2",
@@ -71,6 +79,8 @@ export const productSeparateData = [
     stock: 12,
     category: "laptops",
     rating: 4.8,
+    description:
+      "High-performance laptop designed for productivity, entertainment, and everyday use.",
   },
   {
     id: "l3",
@@ -85,6 +95,8 @@ export const productSeparateData = [
     stock: 8,
     category: "laptops",
     rating: 4.7,
+    description:
+      "High-performance laptop designed for productivity, entertainment, and everyday use.",
   },
 
   // SHOES
@@ -101,6 +113,8 @@ export const productSeparateData = [
     stock: 30,
     category: "shoes",
     rating: 4.8,
+    description:
+      "Comfortable and stylish footwear suitable for daily wear, walking, and sports.",
   },
   {
     id: "s2",
@@ -115,6 +129,8 @@ export const productSeparateData = [
     stock: 20,
     category: "shoes",
     rating: 4.7,
+    description:
+      "Comfortable and stylish footwear suitable for daily wear, walking, and sports.",
   },
   {
     id: "s3",
@@ -129,6 +145,8 @@ export const productSeparateData = [
     stock: 18,
     category: "shoes",
     rating: 4.5,
+    description:
+      "Comfortable and stylish footwear suitable for daily wear, walking, and sports.",
   },
 
   // WATCHES
@@ -145,6 +163,8 @@ export const productSeparateData = [
     stock: 15,
     category: "watches",
     rating: 4.8,
+    description:
+      "Modern smartwatch or timepiece with useful features and reliable performance.",
   },
   {
     id: "w2",
@@ -159,6 +179,8 @@ export const productSeparateData = [
     stock: 10,
     category: "watches",
     rating: 4.7,
+    description:
+      "Modern smartwatch or timepiece with useful features and reliable performance.",
   },
   {
     id: "w3",
@@ -173,6 +195,8 @@ export const productSeparateData = [
     stock: 12,
     category: "watches",
     rating: 4.5,
+    description:
+      "Modern smartwatch or timepiece with useful features and reliable performance.",
   },
 
   // HEADPHONES
@@ -189,6 +213,8 @@ export const productSeparateData = [
     stock: 20,
     category: "headphones",
     rating: 4.9,
+    description:
+      "High-quality audio device delivering immersive sound and comfortable listening.",
   },
   {
     id: "h2",
@@ -203,6 +229,8 @@ export const productSeparateData = [
     stock: 25,
     category: "headphones",
     rating: 4.8,
+    description:
+      "High-quality audio device delivering immersive sound and comfortable listening.",
   },
   {
     id: "h3",
@@ -217,6 +245,8 @@ export const productSeparateData = [
     stock: 30,
     category: "headphones",
     rating: 4.5,
+    description:
+      "High-quality audio device delivering immersive sound and comfortable listening.",
   },
 
   // CAMERAS
@@ -233,6 +263,8 @@ export const productSeparateData = [
     stock: 10,
     category: "cameras",
     rating: 4.8,
+    description:
+      "Versatile camera built for capturing sharp photos and high-quality videos.",
   },
   {
     id: "c2",
@@ -247,6 +279,8 @@ export const productSeparateData = [
     stock: 8,
     category: "cameras",
     rating: 4.9,
+    description:
+      "Versatile camera built for capturing sharp photos and high-quality videos.",
   },
   {
     id: "c3",
@@ -261,6 +295,8 @@ export const productSeparateData = [
     stock: 12,
     category: "cameras",
     rating: 4.7,
+    description:
+      "Versatile camera built for capturing sharp photos and high-quality videos.",
   },
 
   // ================= T-SHIRTS =================
@@ -277,6 +313,8 @@ export const productSeparateData = [
     stock: 40,
     category: "t-shirts",
     rating: 4.5,
+    description:
+      "Soft and comfortable t-shirt designed for casual everyday wear.",
   },
   {
     id: "t2",
@@ -291,6 +329,8 @@ export const productSeparateData = [
     stock: 35,
     category: "t-shirts",
     rating: 4.4,
+    description:
+      "Soft and comfortable t-shirt designed for casual everyday wear.",
   },
   {
     id: "t3",
@@ -305,6 +345,8 @@ export const productSeparateData = [
     stock: 25,
     category: "t-shirts",
     rating: 4.3,
+    description:
+      "Soft and comfortable t-shirt designed for casual everyday wear.",
   },
 
   // ================= JEANS =================
@@ -321,6 +363,7 @@ export const productSeparateData = [
     stock: 20,
     category: "jeans",
     rating: 4.6,
+    description: "Durable and stylish jeans offering comfort and a modern fit.",
   },
   {
     id: "j2",
@@ -335,6 +378,7 @@ export const productSeparateData = [
     stock: 18,
     category: "jeans",
     rating: 4.4,
+    description: "Durable and stylish jeans offering comfort and a modern fit.",
   },
   {
     id: "j3",
@@ -349,6 +393,7 @@ export const productSeparateData = [
     stock: 15,
     category: "jeans",
     rating: 4.3,
+    description: "Durable and stylish jeans offering comfort and a modern fit.",
   },
 
   // ================= SUNGLASSES =================
@@ -365,6 +410,8 @@ export const productSeparateData = [
     stock: 15,
     category: "sunglasses",
     rating: 4.7,
+    description:
+      "Protective and fashionable sunglasses with comfortable everyday wear.",
   },
   {
     id: "sg2",
@@ -379,6 +426,8 @@ export const productSeparateData = [
     stock: 12,
     category: "sunglasses",
     rating: 4.5,
+    description:
+      "Protective and fashionable sunglasses with comfortable everyday wear.",
   },
   {
     id: "sg3",
@@ -393,6 +442,8 @@ export const productSeparateData = [
     stock: 25,
     category: "sunglasses",
     rating: 4.3,
+    description:
+      "Protective and fashionable sunglasses with comfortable everyday wear.",
   },
 
   // ================= GAMING =================
@@ -409,6 +460,8 @@ export const productSeparateData = [
     stock: 8,
     category: "gaming",
     rating: 4.9,
+    description:
+      "Popular gaming device delivering immersive entertainment and smooth gameplay.",
   },
   {
     id: "g2",
@@ -423,6 +476,8 @@ export const productSeparateData = [
     stock: 10,
     category: "gaming",
     rating: 4.8,
+    description:
+      "Popular gaming device delivering immersive entertainment and smooth gameplay.",
   },
   {
     id: "g3",
@@ -437,6 +492,8 @@ export const productSeparateData = [
     stock: 12,
     category: "gaming",
     rating: 4.7,
+    description:
+      "Popular gaming device delivering immersive entertainment and smooth gameplay.",
   },
 
   // ================= TELEVISIONS =================
@@ -453,6 +510,8 @@ export const productSeparateData = [
     stock: 7,
     category: "televisions",
     rating: 4.8,
+    description:
+      "Smart television featuring vibrant visuals and an enhanced viewing experience.",
   },
   {
     id: "tv2",
@@ -467,6 +526,8 @@ export const productSeparateData = [
     stock: 5,
     category: "televisions",
     rating: 4.9,
+    description:
+      "Smart television featuring vibrant visuals and an enhanced viewing experience.",
   },
   {
     id: "tv3",
@@ -481,6 +542,8 @@ export const productSeparateData = [
     stock: 8,
     category: "televisions",
     rating: 4.7,
+    description:
+      "Smart television featuring vibrant visuals and an enhanced viewing experience.",
   },
 
   // ================= TABLETS =================
@@ -497,6 +560,8 @@ export const productSeparateData = [
     stock: 15,
     category: "tablets",
     rating: 4.8,
+    description:
+      "Portable tablet perfect for entertainment, study, work, and browsing.",
   },
   {
     id: "tb2",
@@ -511,6 +576,8 @@ export const productSeparateData = [
     stock: 12,
     category: "tablets",
     rating: 4.7,
+    description:
+      "Portable tablet perfect for entertainment, study, work, and browsing.",
   },
   {
     id: "tb3",
@@ -525,6 +592,8 @@ export const productSeparateData = [
     stock: 18,
     category: "tablets",
     rating: 4.5,
+    description:
+      "Portable tablet perfect for entertainment, study, work, and browsing.",
   },
 
   // ================= PRINTERS =================
@@ -541,6 +610,8 @@ export const productSeparateData = [
     stock: 10,
     category: "printers",
     rating: 4.4,
+    description:
+      "Reliable printer suitable for home, office, and everyday printing tasks.",
   },
   {
     id: "pr2",
@@ -555,6 +626,8 @@ export const productSeparateData = [
     stock: 8,
     category: "printers",
     rating: 4.3,
+    description:
+      "Reliable printer suitable for home, office, and everyday printing tasks.",
   },
   {
     id: "pr3",
@@ -569,6 +642,8 @@ export const productSeparateData = [
     stock: 12,
     category: "printers",
     rating: 4.5,
+    description:
+      "Reliable printer suitable for home, office, and everyday printing tasks.",
   },
 
   // ================= SPEAKERS =================
@@ -585,6 +660,8 @@ export const productSeparateData = [
     stock: 20,
     category: "speakers",
     rating: 4.7,
+    description:
+      "Portable speaker with clear audio quality and powerful sound output.",
   },
   {
     id: "sp2",
@@ -599,6 +676,8 @@ export const productSeparateData = [
     stock: 15,
     category: "speakers",
     rating: 4.6,
+    description:
+      "Portable speaker with clear audio quality and powerful sound output.",
   },
   {
     id: "sp3",
@@ -613,6 +692,8 @@ export const productSeparateData = [
     stock: 25,
     category: "speakers",
     rating: 4.4,
+    description:
+      "Portable speaker with clear audio quality and powerful sound output.",
   },
 
   // ================= FURNITURE =================
@@ -629,6 +710,8 @@ export const productSeparateData = [
     stock: 8,
     category: "furniture",
     rating: 4.5,
+    description:
+      "Functional furniture designed to improve comfort and home organization.",
   },
   {
     id: "f2",
@@ -643,6 +726,8 @@ export const productSeparateData = [
     stock: 10,
     category: "furniture",
     rating: 4.4,
+    description:
+      "Functional furniture designed to improve comfort and home organization.",
   },
   {
     id: "f3",
@@ -657,6 +742,8 @@ export const productSeparateData = [
     stock: 5,
     category: "furniture",
     rating: 4.6,
+    description:
+      "Functional furniture designed to improve comfort and home organization.",
   },
 
   // ================= BOOKS =================
@@ -673,6 +760,8 @@ export const productSeparateData = [
     stock: 50,
     category: "books",
     rating: 4.9,
+    description:
+      "Popular book packed with valuable insights, knowledge, and inspiration.",
   },
   {
     id: "b2",
@@ -687,6 +776,8 @@ export const productSeparateData = [
     stock: 40,
     category: "books",
     rating: 4.8,
+    description:
+      "Popular book packed with valuable insights, knowledge, and inspiration.",
   },
   {
     id: "b3",
@@ -701,6 +792,8 @@ export const productSeparateData = [
     stock: 35,
     category: "books",
     rating: 4.9,
+    description:
+      "Popular book packed with valuable insights, knowledge, and inspiration.",
   },
 
   // ================= BEAUTY =================
@@ -717,6 +810,8 @@ export const productSeparateData = [
     stock: 30,
     category: "beauty",
     rating: 4.6,
+    description:
+      "Personal care product formulated to support daily beauty and skincare needs.",
   },
   {
     id: "be2",
@@ -731,6 +826,8 @@ export const productSeparateData = [
     stock: 35,
     category: "beauty",
     rating: 4.5,
+    description:
+      "Personal care product formulated to support daily beauty and skincare needs.",
   },
   {
     id: "be3",
@@ -745,6 +842,8 @@ export const productSeparateData = [
     stock: 25,
     category: "beauty",
     rating: 4.4,
+    description:
+      "Personal care product formulated to support daily beauty and skincare needs.",
   },
 
   // ================= KITCHEN =================
@@ -761,6 +860,8 @@ export const productSeparateData = [
     stock: 20,
     category: "kitchen",
     rating: 4.5,
+    description:
+      "Essential kitchen item designed for convenient and efficient cooking.",
   },
   {
     id: "k2",
@@ -775,6 +876,8 @@ export const productSeparateData = [
     stock: 12,
     category: "kitchen",
     rating: 4.6,
+    description:
+      "Essential kitchen item designed for convenient and efficient cooking.",
   },
   {
     id: "k3",
@@ -789,6 +892,8 @@ export const productSeparateData = [
     stock: 18,
     category: "kitchen",
     rating: 4.4,
+    description:
+      "Essential kitchen item designed for convenient and efficient cooking.",
   },
 
   // ================= FITNESS =================
@@ -805,6 +910,8 @@ export const productSeparateData = [
     stock: 25,
     category: "fitness",
     rating: 4.7,
+    description:
+      "Fitness product that supports workouts, training, and healthy living.",
   },
   {
     id: "fit2",
@@ -819,6 +926,8 @@ export const productSeparateData = [
     stock: 30,
     category: "fitness",
     rating: 4.5,
+    description:
+      "Fitness product that supports workouts, training, and healthy living.",
   },
   {
     id: "fit3",
@@ -833,6 +942,8 @@ export const productSeparateData = [
     stock: 10,
     category: "fitness",
     rating: 4.6,
+    description:
+      "Fitness product that supports workouts, training, and healthy living.",
   },
 
   // ================= TOYS =================
@@ -849,6 +960,8 @@ export const productSeparateData = [
     stock: 40,
     category: "toys",
     rating: 4.5,
+    description:
+      "Fun and engaging toy designed to encourage play and creativity.",
   },
   {
     id: "toy2",
@@ -863,6 +976,8 @@ export const productSeparateData = [
     stock: 25,
     category: "toys",
     rating: 4.4,
+    description:
+      "Fun and engaging toy designed to encourage play and creativity.",
   },
   {
     id: "toy3",
@@ -877,6 +992,8 @@ export const productSeparateData = [
     stock: 35,
     category: "toys",
     rating: 4.3,
+    description:
+      "Fun and engaging toy designed to encourage play and creativity.",
   },
 
   // ================= PET SUPPLIES =================
@@ -893,6 +1010,8 @@ export const productSeparateData = [
     stock: 30,
     category: "pet-supplies",
     rating: 4.6,
+    description:
+      "Quality pet care product designed for comfort, hygiene, and wellbeing.",
   },
   {
     id: "pet2",
@@ -907,6 +1026,8 @@ export const productSeparateData = [
     stock: 20,
     category: "pet-supplies",
     rating: 4.4,
+    description:
+      "Quality pet care product designed for comfort, hygiene, and wellbeing.",
   },
   {
     id: "pet3",
@@ -921,6 +1042,8 @@ export const productSeparateData = [
     stock: 15,
     category: "pet-supplies",
     rating: 4.5,
+    description:
+      "Quality pet care product designed for comfort, hygiene, and wellbeing.",
   },
 
   // ================= JEWELRY =================
@@ -937,6 +1060,8 @@ export const productSeparateData = [
     stock: 12,
     category: "jewelry",
     rating: 4.7,
+    description:
+      "Elegant jewelry piece crafted to complement any outfit or occasion.",
   },
   {
     id: "jw2",
@@ -951,6 +1076,8 @@ export const productSeparateData = [
     stock: 15,
     category: "jewelry",
     rating: 4.6,
+    description:
+      "Elegant jewelry piece crafted to complement any outfit or occasion.",
   },
   {
     id: "jw3",
@@ -965,6 +1092,8 @@ export const productSeparateData = [
     stock: 8,
     category: "jewelry",
     rating: 4.8,
+    description:
+      "Elegant jewelry piece crafted to complement any outfit or occasion.",
   },
 
   // ================= HOME DECOR =================
@@ -981,6 +1110,8 @@ export const productSeparateData = [
     stock: 25,
     category: "home-decor",
     rating: 4.5,
+    description:
+      "Decorative home accessory that enhances style and living spaces.",
   },
   {
     id: "hd2",
@@ -995,6 +1126,8 @@ export const productSeparateData = [
     stock: 18,
     category: "home-decor",
     rating: 4.4,
+    description:
+      "Decorative home accessory that enhances style and living spaces.",
   },
   {
     id: "hd3",
@@ -1009,6 +1142,8 @@ export const productSeparateData = [
     stock: 22,
     category: "home-decor",
     rating: 4.5,
+    description:
+      "Decorative home accessory that enhances style and living spaces.",
   },
 
   // ================= GROCERIES =================
@@ -1025,6 +1160,8 @@ export const productSeparateData = [
     stock: 60,
     category: "groceries",
     rating: 4.6,
+    description:
+      "Everyday grocery essential selected for freshness and quality.",
   },
   {
     id: "gr2",
@@ -1039,6 +1176,8 @@ export const productSeparateData = [
     stock: 55,
     category: "groceries",
     rating: 4.5,
+    description:
+      "Everyday grocery essential selected for freshness and quality.",
   },
   {
     id: "gr3",
@@ -1053,6 +1192,8 @@ export const productSeparateData = [
     stock: 40,
     category: "groceries",
     rating: 4.7,
+    description:
+      "Everyday grocery essential selected for freshness and quality.",
   },
 
   // ================= BABY CARE =================
@@ -1069,6 +1210,8 @@ export const productSeparateData = [
     stock: 50,
     category: "baby-care",
     rating: 4.7,
+    description:
+      "Trusted baby care product designed for safety, comfort, and convenience.",
   },
   {
     id: "bc2",
@@ -1083,6 +1226,8 @@ export const productSeparateData = [
     stock: 35,
     category: "baby-care",
     rating: 4.6,
+    description:
+      "Trusted baby care product designed for safety, comfort, and convenience.",
   },
   {
     id: "bc3",
@@ -1097,9 +1242,7 @@ export const productSeparateData = [
     stock: 30,
     category: "baby-care",
     rating: 4.5,
+    description:
+      "Trusted baby care product designed for safety, comfort, and convenience.",
   },
 ];
-
-
-
-
