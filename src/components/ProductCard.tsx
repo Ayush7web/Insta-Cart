@@ -19,11 +19,10 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
-  const {addToCart} = UseCart();
+  const { addToCart } = UseCart();
   const navigate = useNavigate();
   // currency symbol (define here to avoid "Cannot find name 'currency'" error)
   const currency = "₹";
-
 
   return (
     <div
@@ -83,7 +82,10 @@ const ProductCard = ({ product }: Props) => {
             onClick={(e) => {
               e.stopPropagation();
               // the cart expects an `id` field (not `_id`), map it here
-              const cartProduct: Product & { id: string } = { ...product, id: product._id };
+              const cartProduct: Product & { id: string } = {
+                ...product,
+                id: product._id,
+              };
               addToCart(cartProduct);
             }}
             className="size-7 rounded-full bg-orange-600 text-white flex items-center justify-center  shrink-0 hover:bg-orange-900 transition-colors active:scale-95 "

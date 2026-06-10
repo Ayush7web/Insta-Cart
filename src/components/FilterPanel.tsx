@@ -11,7 +11,7 @@ type FilterPanelProps = {
   updateFilters: (filterName: string, value: string) => void;
   clearFilter: () => void;
   // hasFilters?: () => boolean;
-  organic? : string; 
+  organic?: string;
 };
 
 const FilterPanel = ({
@@ -72,14 +72,13 @@ const FilterPanel = ({
         </div>
       </div>
       {/* Filters  */}
-       
-        <button
-          onClick={clearFilter}
-          className="w-full py-3 text-sm text-ellipsis border hover:bg-red-400 rounded-lg transition-colors font-medium"
-        >
-          Clear All Filters
-        </button>
-      
+
+      <button
+        onClick={clearFilter}
+        className="w-full py-3 text-sm text-ellipsis border hover:bg-red-400 rounded-lg transition-colors font-medium"
+      >
+        Clear All Filters
+      </button>
     </div>
   );
 };

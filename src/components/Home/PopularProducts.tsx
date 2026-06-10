@@ -6,9 +6,6 @@ import ProductCard from "../ProductCard";
 // import { useEffect, useState } from "react";
 
 const PopularProducts = () => {
-
-
-
   interface Product {
     _id: string;
     name: string;
@@ -20,8 +17,6 @@ const PopularProducts = () => {
     rating: number;
     reviewCount: number;
   }
-
-  
 
   const products: Product[] = categoriesData.slice(0, 10).map((product) => {
     const { id, price, originalPrice, ...rest } = product;

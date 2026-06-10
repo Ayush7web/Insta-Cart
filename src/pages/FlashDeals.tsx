@@ -27,7 +27,7 @@ const FlashDeals = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setProducts(productSeparateData.filter((p: any) => p.stock > 0));
+    setProducts(productSeparateData.filter((p: Product) => p.stock > 0 && p.price !== undefined) as Product[]);
     setTimeout(() => setLoading(false), 2000);
   }, []);
 

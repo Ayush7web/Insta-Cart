@@ -32,11 +32,13 @@ type Product = {
   description?: string;
   organic?: boolean;
   hasFilters?: boolean;
-  // displayQuantity?:string
+  isOrganic?: boolean;
 };
 
+
+
 const ProductPage = () => {
-  const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "₹";
+  const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "$";
   const { id } = useParams();
   const navigate = useNavigate();
   const { items, addToCart, updateQuantity, removeFromCart } = UseCart();
@@ -49,49 +51,48 @@ const ProductPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    setLocalQuantity(localQuantity +  1 );
+    setLocalQuantity(localQuantity + 1);
     window.scrollTo(0, 0);
-    const product = productSeparateData.find((p) => p.id === id);
-    setProduct(product || null);
-    setRelatedProducts(productSeparateData.filter((p) => p.id !== id));
+    const product = productSeparateData.find((p)=> p._id === id);
+    // if (!product) return null;
+    setProduct(product!);
+    setRelatedProducts(productSeparateData.filter((p) => p._id !== id));
     setLoading(false);
   }, [id, navigate]);
 
   if (loading) return <Loading />;
   if (!product) return null;
 
-  const cartItem = items.find((item) => item.product.id === product.id);
+  const cartItem = items.find((item) => item.product._id === product._id);
   const inCart = !!cartItem;
-    const displayQuantity = inCart ? cartItem.quantity : localQuantity;
+  const displayQuantity = inCart ? cartItem.quantity : localQuantity;
 
   // const displayQuantity = localQuantity ?? cartItem?.quantity ?? 1
+ const categoryLabel = product.category.replace(/-/g, " ");
 
-const handleMinus = ()=>{
-    if(inCart){
-    if(cartItem.quantity > 1) updateQuantity(product.id, cartItem.quantity - 1)
-      else removeFromCart(product.id)
-  }else{
-    setLocalQuantity(Math.max(1 , localQuantity - 1))
-  }
-}
+  const handleMinus = () => {
+    if (inCart) {
+      if (cartItem.quantity > 1)
+        updateQuantity(product.id, cartItem.quantity - 1);
+      else removeFromCart(product.id);
+    } else {
+      setLocalQuantity(Math.max(1, localQuantity - 1));
+    }
+  };
 
+  const handlePlus = () => {
+    if (inCart) updateQuantity(product.id, cartItem.quantity + 1);
+    else setLocalQuantity(localQuantity + 1);
+  };
 
-
-const handlePlus = () => {
-if(inCart) updateQuantity(product.id , cartItem.quantity + 1)
-  else setLocalQuantity(localQuantity + 1)
-};
-
-
-
-  const categoryLabel = product.category.replace(/-/g, " ");
+ 
 
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* BreadCrumb  */}
         <nav className="flex items-center gap-2 text-sm text-amber-950 mb-6">
-          <Link to="/" className="hover:text-green-950 transition-colors">
+          <Link to='/' className="hover:text-green-950 transition-colors">
             <HomeIcon className="size-4" />
           </Link>
           <span>/</span>
@@ -131,7 +132,10 @@ if(inCart) updateQuantity(product.id , cartItem.quantity + 1)
                 className="max-h-[360px] w-auto object-contain"
               />
               <div className="absolute top-8 md:top-11.5 gap-1.5">
-                {product.organic && (
+
+
+                {/* Badges  */}
+                {product.isOrganic && (
                   <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold bg-green-950 text-white rounded-full">
                     <LeafIcon className="w-3 h-3" />
                     Organic
@@ -204,7 +208,8 @@ if(inCart) updateQuantity(product.id , cartItem.quantity + 1)
               </div>
 
               {/* Quantity + add to cart */}
-{/* ye bhi logic chalega definitely
+              {
+                /* ye bhi logic chalega definitely
                       onClick={() => {
                       if (displayQuantity <= 1) return;
                       setLocalQuantity(displayQuantity - 1);
@@ -213,20 +218,19 @@ if(inCart) updateQuantity(product.id , cartItem.quantity + 1)
                         updateQuantity(product._id, displayQuantity - 1);
                       }
                     } */
-                    //  onClick={() => {
-                    //   setLocalQuantity(displayQuantity + 1);
-                    //   if (inCart) {
-                    //     updateQuantity(product._id, displayQuantity + 1);
-                    //   }
-                    // }}
-                    
-                    }
+                //  onClick={() => {
+                //   setLocalQuantity(displayQuantity + 1);
+                //   if (inCart) {
+                //     updateQuantity(product._id, displayQuantity + 1);
+                //   }
+                // }}
+              }
 
               <div className="flex items-center gap-3">
                 {/* qunatity */}
                 <div className="flex items-center border border-amber-600 rounded-xl overflow-hidden">
-                  <button onClick={handleMinus}
-            
+                  <button
+                    onClick={handleMinus}
                     className="p-3 hover:bg-amber-400 transition-colors"
                   >
                     <MinusIcon className="w-4 h-4" />
@@ -236,8 +240,8 @@ if(inCart) updateQuantity(product.id , cartItem.quantity + 1)
                     {displayQuantity}
                   </span>
 
-                  <button onClick={handlePlus}
-                  
+                  <button
+                    onClick={handlePlus}
                     className="p-3 hover:bg-amber-400 transition-colors"
                   >
                     <PlusIcon className="w-4 h-4" />
@@ -245,11 +249,13 @@ if(inCart) updateQuantity(product.id , cartItem.quantity + 1)
                 </div>
 
                 {/* add to cart */}
-                <button onClick={() => {
-                  if(!inCart) addToCart(product , localQuantity)
-                }}
-                 disabled={product.stock === 0}
-                className={`flex-1 py-3 font-semibold rounded-xl transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98] ${inCart ? "bg-amber-300 text-gray-950 border border-amber-600" : "bg-orange-500 text-white hover:bg-orange-700"}`}>
+                <button
+                  onClick={() => {
+                    if (!inCart) addToCart(product, localQuantity);
+                  }}
+                  disabled={product.stock === 0}
+                  className={`flex-1 py-3 font-semibold rounded-xl transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98] ${inCart ? "bg-amber-300 text-gray-950 border border-amber-600" : "bg-orange-500 text-white hover:bg-orange-700"}`}
+                >
                   <ShoppingCartIcon className="w-4 h-4" />
                   {inCart ? "Added to Cart" : "Add to Cart"}
                 </button>
@@ -258,29 +264,34 @@ if(inCart) updateQuantity(product.id , cartItem.quantity + 1)
           </div>
         </div>
         {/* customer reviews */}
-        {product.reviewCount > 0 && <DummyReviewsSection product={product}/>}
+        {product.reviewCount > 0 && <DummyReviewsSection product={product} />}
         {/* Related Products */}
-{relatedProducts.length > 0 && (
-  <section className="mt-12 mb-44">
-    <div className="flex items-center justify-between mb-6">
-<div>
-  <h2 className="text-2xl font-semibold text-green-950">Related Products</h2>
-  <p className="text-sm text-amber-900 mt-1">More from {categoryLabel}</p>
-</div>
-<Link className="text-sm font-semibold text-orange-600 hover:text-orange-800 flex items-center gap-1 transition-colors"
-to={`/products?category=${product.category}`}>
-View All <ArrowRightIcon className="size-4"/>
-</Link>
-    </div>
+        {relatedProducts.length > 0 && (
+          <section className="mt-12 mb-44">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-semibold text-green-950">
+                  Related Products
+                </h2>
+                <p className="text-sm text-amber-900 mt-1">
+                  More from {categoryLabel}
+                </p>
+              </div>
+              <Link
+                className="text-sm font-semibold text-orange-600 hover:text-orange-800 flex items-center gap-1 transition-colors"
+                to={`/products?category=${product.category}`}
+              >
+                View All <ArrowRightIcon className="size-4" />
+              </Link>
+            </div>
 
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 xl:gap-8">
-{relatedProducts.slice(0,5).map((rp) => (
-  <ProductCard key={rp.id} product={rp}/>
-))}
-    </div>
-  </section>
-)}
-
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 xl:gap-8">
+              {relatedProducts.slice(0, 5).map((rp) => (
+                <ProductCard key={rp.id} product={rp} />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );
