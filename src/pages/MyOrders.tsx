@@ -49,9 +49,9 @@ const MyOrders = () => {
         {
           name: item.name,
           image: item.image,
-          price:item.price,
         },
       ],
+      totalPrice:item.price ?? "22",
       total: item.total ?? 0,
     }));
 
@@ -177,8 +177,7 @@ const MyOrders = () => {
                     {order.items.length} items
                   </span>
                   <span className="font-semibold text-green-950">
-                    {currency}
-                    {order.total.toFixed(2)}
+                    {"$29"}{order.total.toFixed()} 
                   </span>
                 </div>
               </Link>
