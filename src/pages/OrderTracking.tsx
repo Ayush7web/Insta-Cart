@@ -3,14 +3,17 @@ import { useNavigate, useParams } from "react-router-dom";
 import { dashboardOrderData } from "../data/dashboardOrderData";
 import Loading from "../components/Loading";
 import { ArrowLeftIcon } from "lucide-react";
+import OrderOTP from "../components/OrderTracking/OrderOTP";
 
 type Order = {
   _id: string;
+  id:string;
   createdAt: string;
   status: string;
   items: { name?: string; image?: string; price?: number }[];
   total: number;
   newDate: string;
+  deliveryOtp: string;
 };
 
 const OrderTracking = () => {
@@ -62,6 +65,16 @@ const OrderTracking = () => {
           >
             {order!.status} Delivery
           </span>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-6">
+{/* Left side -Timeline + map area */}
+<div className="lg:col-span-2 space-y-6">
+{/* OTP card  */}
+<OrderOTP order={order}/>
+</div>
+  
+  {/* Right side -Order details  */}
         </div>
       </div>
     </div>
