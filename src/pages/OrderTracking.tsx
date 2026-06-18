@@ -21,13 +21,13 @@ const OrderTracking = () => {
   const navigate = useNavigate();
   const [order, setOrder] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
-  const [liveLocation, setLiveLocation] = useState<{
-    lat: number;
-    lng: number;
-  } | null>(null);
+  // const [liveLocation, setLiveLocation] = useState<{
+  //   lat: number;
+  //   lng: number;
+  // } | null>(null);
 
   useEffect(() => {
-    setOrder(dashboardOrderData.find((o) => (o._id = id)) as any);
+    setOrder(dashboardOrderData.find((o:any) => (o._id = id)) as any);
     setLoading(false);
   }, [id, navigate]);
 

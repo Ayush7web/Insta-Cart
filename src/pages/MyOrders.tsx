@@ -24,7 +24,7 @@ const statusColors: Record<string, string> = {
   cancelled: "bg-red-100 text-red-800",
 };
 
-  const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "$";
+  // const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "$";
 // =======================================================
 
 const MyOrders = () => {

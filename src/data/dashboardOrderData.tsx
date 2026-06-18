@@ -1,6 +1,7 @@
 export const dashboardOrderData = [
   {
     id: 1,
+    _id: 1,
     name: "Mobiles",
     slug: "mobiles",
     image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
@@ -17,6 +18,7 @@ export const dashboardOrderData = [
 
   {
     id: 2,
+    _id: 2,
     name: "Laptops",
     slug: "laptops",
     image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
@@ -33,6 +35,7 @@ export const dashboardOrderData = [
 
   {
     id: 3,
+    _id: 3,
     name: "Shoes",
     slug: "shoes",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
