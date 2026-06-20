@@ -26,9 +26,9 @@ const OrderTracking = () => {
   //   lng: number;
   // } | null>(null);
 
-  useEffect(() => {
-    setOrder(dashboardOrderData.find((o:any) => (o._id = id)) as any);
-    setLoading(false);
+  useEffect(()=>{
+    setOrder(dashboardOrderData.find((o)=>o._id === id) as any)
+    setLoading(false)
   }, [id, navigate]);
 
   if (loading) return <Loading />;
