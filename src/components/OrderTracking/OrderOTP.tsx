@@ -11,7 +11,6 @@ export default function OrderOTP({ order }: OrderOTPProps) {
   const showOtp =
     order.deliveryOtp &&
     ["Assigned", "Packed", "Out for Delivery"].includes(order.status);
-    console.log(showOtp);
   if (!showOtp)
     return (
       <>

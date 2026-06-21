@@ -7,7 +7,7 @@ import OrderOTP from "../components/OrderTracking/OrderOTP";
 
 type Order = {
   _id: string;
-  id:string;
+  id: string;
   createdAt: string;
   status: string;
   items: { name?: string; image?: string; price?: number }[];
@@ -26,9 +26,10 @@ const OrderTracking = () => {
   //   lng: number;
   // } | null>(null);
 
-  useEffect(()=>{
-    setOrder(dashboardOrderData.find((o)=>o._id === id) as any)
-    setLoading(false)
+  useEffect(() => {
+    setOrder(dashboardOrderData.find((o) => o._id.toString() === id) as any);
+    console.log(setOrder);
+    setLoading(false);
   }, [id, navigate]);
 
   if (loading) return <Loading />;
@@ -52,9 +53,9 @@ const OrderTracking = () => {
               Order #{order!._id.slice(-8).toUpperCase()}
             </h1>
             <p className="text-sm text-amber-950 mt-1">
-              Placed on{" "}
+              Placed on{" "}1
               {new Date(order!.createdAt).toLocaleDateString("en-US", {
-                month: "long",
+                month: "short",
                 day: "numeric",
                 year: "numeric",
               })}
@@ -68,13 +69,13 @@ const OrderTracking = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
-{/* Left side -Timeline + map area */}
-<div className="lg:col-span-2 space-y-6">
-{/* OTP card  */}
-<OrderOTP order={order}/>
-</div>
-  
-  {/* Right side -Order details  */}
+          {/* Left side -Timeline + map area */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* OTP card  */}
+            <OrderOTP order={order} />
+          </div>
+
+          {/* Right side -Order details  */}
         </div>
       </div>
     </div>
