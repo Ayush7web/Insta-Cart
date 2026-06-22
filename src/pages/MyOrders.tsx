@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { dashboardOrderData } from "../data/dashboardOrderData";
 
+
 type Order = {
   _id: string;
   createdAt: string;
@@ -51,11 +52,19 @@ const MyOrders = () => {
           image: item.image,
         },
       ],
-      totalPrice:item.price ?? "22",
+      totalPrice: item.price ?? "22",
       total: item.total ?? 0,
     }));
 
-    setOrders(mapped);
+    if (activeTab === "all") {
+      setOrders(mapped);
+    } else {
+      const filtered = mapped.filter(
+        (order) => order.status.toLowerCase() === activeTab.toLowerCase(),
+      );
+      setOrders(filtered);
+    }
+
     setLoading(false);
   };
 
@@ -177,7 +186,7 @@ const MyOrders = () => {
                     {order.items.length} items
                   </span>
                   <span className="font-semibold text-green-950">
-                    {"$29"}{order.total.toFixed()} 
+                    ${order.total.toFixed(2)}
                   </span>
                 </div>
               </Link>
@@ -185,10 +194,130 @@ const MyOrders = () => {
           </div>
         )}
       </div>
-
-      
     </div>
   );
 };
 
 export default MyOrders;
+
+// NEW CODEEEEEEEEEEEEEE TRANSVERSE
+
+
+// import { useEffect, useState } from "react";
+// import { useSearchParams, Link } from "react-router-dom";
+// import { UseCart } from "../context/CartContext";
+// import { CalendarSearchIcon, PackageIcon } from "lucide-react";
+// import Loading from "../components/Loading";
+// import { dashboardOrderData } from "../data/dashboardOrderData";
+
+// type Order = {
+//   _id: string;
+//   createdAt: string;
+//   status: string;
+//   items: { name?: string; image?: string; price?: number }[];
+//   total: number;
+// };
+
+// const MyOrders = () => {
+//   const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "$";
+
+//   const [orders, setOrders] = useState<Order[]>([]);
+//   const [loading, setLoading] = useState(true);
+//   const [activeTab, setActiveTab] = useState("all");
+//   const [searchParams, setSearchParams] = useSearchParams();
+
+//   const tabs = ["all", "placed", "Out for Delivery", "Delivered"];
+//   const { clearCart } = UseCart();
+
+//   const fetchOrders = async () => {
+//     setOrders(dashboardOrderData as any);
+//     setLoading(false);
+//   };
+
+//   useEffect(() => {
+//     if (searchParams.get("clearCart")) {
+//       setSearchParams({});
+//       setTimeout(() => {
+//         fetchOrders();
+//       }, 2000);
+//     } else {
+//       fetchOrders();
+//     }
+//   }, [activeTab]);
+
+//   return (
+//     <div className="min-h-screen bg-amber-500 mb-20">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+//         <h1 className="text-2xl font-semibold text-green-950 mb-6 "></h1>
+
+//         {/* Tabs  */}
+//         <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+//           {tabs.map((tab) => (
+//             <button
+//               key={tab}
+//               onClick={() => setActiveTab(tab)}
+//               className={`px-4 py-2 text-sm font-medium rounded-xl whitespace-nowrap transition-colors ${activeTab === tab ? "bg-green-950 text-white" : "bg-white text-lime-900 hover:bg-amber-200"}`}
+//             >
+//               {tab === "all" ? "All Orders" : tab}
+//             </button>
+//           ))}
+//         </div>
+
+//         {/* Orders list */}
+//         {loading ? (
+//           <Loading />
+//         ) : orders.length === 0 ? (
+//           <div className=" flex flex-col items-center py-16">
+//             <PackageIcon style={{ color: "white" }} className="size-16 mb-4" />
+//             <h2 className="text-lg font-medium text-green-950 mb-2">
+//               No Orders yet
+//             </h2>
+//             <p className="text-sm text-lime-950 mb-4">
+//               Start shopping to see your orders here
+//             </p>
+//             <Link
+//               to="/products"
+//               className="inline-flex px-4 py-2 bg-green-700 text-white text-sm rounded-lg"
+//             >
+//               Start Shopping
+//             </Link>
+//           </div>
+//         ) : (
+//           <div className="space-y-4">
+//             {orders.map((order) => (
+//               <Link
+//                 key={order._id}
+//                 to={`/orders/${order._id}`}
+//                 className="block max-w-4xl bg-white rounded-2xl p-5 hover:shadow transition-all"
+//               >
+//                 {/* Order id , date , & status */}
+//                 <div className="flex items-start justify-between mb-3">
+//                   {/* left */}
+//                   <div>
+//                     <p className="text-sm font-medium text-green-950">
+//                       Order #{order._id.slice(-8).toUpperCase()}
+//                     </p>
+//                     <div className="flex items-center gap-2 mt-1">
+//                       <CalendarSearchIcon className="size-3 text-amber-950" />
+//                       <span className="text-xs text-lime-950">
+//                         {new Date(order.createdAt).toLocaleDateString("en-US", {
+//                           month: "short",
+//                           day: "numeric",
+//                           year: "numeric",
+//                         })}
+//                       </span>
+//                     </div>
+//                   </div>
+
+//                   {/* right */}
+//                 </div>
+//               </Link>
+//             ))}
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default MyOrders;

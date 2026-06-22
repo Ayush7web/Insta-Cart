@@ -11,12 +11,7 @@ export default function OrderOTP({ order }: OrderOTPProps) {
   const showOtp =
     order.deliveryOtp &&
     ["Assigned", "Packed", "Out for Delivery"].includes(order.status);
-  if (!showOtp)
-    return (
-      <>
-        <div className="text-5xl text-red-600 ">Data not Loading</div>
-      </>
-    );
+  if (!showOtp) return
   return (
     <div className="bg-linear-to-r from-app-green to-app-green-light rounded-2xl p-6 text-white">
       <div className="flex items-center gap-3 mb-3">
