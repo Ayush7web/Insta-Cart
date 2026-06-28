@@ -73,6 +73,7 @@ const OrderTracking = () => {
           <div className="lg:col-span-2 space-y-6">
             {/* OTP card  */}
             <OrderOTP order={order} />
+            
           </div>
 
           {/* Right side -Order details  */}

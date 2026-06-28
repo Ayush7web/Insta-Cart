@@ -49,4 +49,21 @@ export const dashboardOrderData = [
 
     unit: "1 Pair",
   },
+  {
+    id: "c3",
+    _id: "c3",
+    name: "Shoes",
+    slug: "shoes",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+
+    originalPrice: "200",
+    price: "80",
+    discount: 60,
+
+    rating: 4.4,
+    reviewCount: 15890,
+
+    unit: "1 Pair",
+  },
+
 ];
